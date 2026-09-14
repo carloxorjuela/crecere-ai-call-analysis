@@ -1,0 +1,9 @@
+audios_prueba_data_analyst/
+data/private/
+.venv/
+.env
+*credentials*.json
+*service-account*.json
+__pycache__/
+.cache/
+Prueba técnica Creceré AI.html
