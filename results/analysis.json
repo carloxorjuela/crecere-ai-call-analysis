@@ -627,5 +627,17 @@
     "relevant_response": 0.08056395885126677,
     "duration": 0.5211
   },
+  "exploratory_holm_pvalues": {
+    "legal_terms": 5.5575585036969876e-11,
+    "binary_answer_prompt": 5.8068890253465736e-08,
+    "closure_recap": 3.2474236493914486e-05,
+    "alternative_offered": 0.0007268912261970287,
+    "next_step_agreed": 0.014356602300004217,
+    "zero_discount_phrase": 0.028850810098075247,
+    "generic_doubt_response": 0.028850810098075247,
+    "objection": 0.2381564660572333,
+    "target_contact": 0.292781998825791,
+    "amount_agreed": 0.292781998825791
+  },
   "interpretation": "Associations in a selected observational sample. No causal attribution, no realized payment measurement. Secondary/exploratory p-values are not confirmatory."
 }

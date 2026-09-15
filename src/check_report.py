@@ -20,6 +20,8 @@ def main():
             element.screenshot(path=str(output/f'screen_page_{i}.png'))
         page.emulate_media(media='print')
         overflow=page.locator('article.page').evaluate_all('(els)=>els.map(e=>({height:e.clientHeight,scrollHeight:e.scrollHeight,overflow:e.scrollHeight>e.clientHeight+2}))')
+        # Tables scroll on screens; in print a hidden horizontal overflow silently drops columns.
+        overflow+=page.locator('.table-scroll').evaluate_all('(els)=>els.map(e=>({width:e.clientWidth,scrollWidth:e.scrollWidth,overflow:e.scrollWidth>e.clientWidth+1}))')
         page.pdf(path=str(output/'report_print.pdf'),format='A4',print_background=True,prefer_css_page_size=True)
         page.emulate_media(media='screen')
         page.set_viewport_size({'width':375,'height':900})

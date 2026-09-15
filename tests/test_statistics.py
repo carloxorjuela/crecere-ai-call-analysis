@@ -5,7 +5,7 @@ import unittest
 import pandas as pd
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
-from analyze import binary_comparison,wilson
+from analyze import binary_comparison,holm,wilson
 
 
 class StatisticsTests(unittest.TestCase):
@@ -32,6 +32,14 @@ class StatisticsTests(unittest.TestCase):
         frame=pd.DataFrame({'group':['ai']*8+['human']*5,'dated_promise':[1]*6+[0]*2+[1]+[0]*4})
         result=binary_comparison(frame,'dated_promise')
         self.assertAlmostEqual(result['comparison']['fisher_two_sided_p'],0.10256410256410256)
+
+    def test_holm_is_monotone_and_capped(self):
+        # Sorted a<c<b<d: 4*.01, 3*.03, max(.09, 2*.04), max(.09, 1*.9).
+        adjusted=holm({'a':.01,'b':.04,'c':.03,'d':.9})
+        self.assertAlmostEqual(adjusted['a'],.04)
+        self.assertAlmostEqual(adjusted['c'],.09)
+        self.assertAlmostEqual(adjusted['b'],.09)
+        self.assertEqual(adjusted['d'],.9)
 
 
 if __name__=='__main__':

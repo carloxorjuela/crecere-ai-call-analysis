@@ -4,6 +4,19 @@ Prueba técnica de Creceré AI · 100 grabaciones suministradas, 50 por grupo.
 
 El entregable ejecutivo es **[report.html](report.html)**: descargar y abrir en un navegador, sin servidor ni conexión. El botón de impresión produce dos páginas A4. El informe distingue compromisos verbales, contexto de gestión y duración; **no mide recaudo efectivo ni demuestra un efecto causal del agente**.
 
+## Resultado en una línea
+
+La brecha de la IA está en el cierre: recapitula en 38 % vs 84 % de los humanos (−46 pp), ofrece alternativas en 55 % vs 90 % (−35 pp) y acuerda un siguiente paso en 47 % vs 78 % (−31 pp); las tres resisten Holm. La diferencia en compromisos con fecha (22 % vs 41 %, p = 0,068) no es concluyente y se reduce a −9,6 pp al comparar solo cobranza: la mitad de las llamadas humanas son recordatorios de acuerdos ya pactados y la IA no tiene ninguno.
+
+## Dónde está cada parte del enunciado
+
+| Sección de la prueba | Informe | Código / documento |
+|---|---|---|
+| 1 · Preguntas, variables, hipótesis, métodos | Página 1, «Cómo se abordó» | [plan previo](docs/analysis_plan.md), [rúbrica](docs/labeling_guide.md), [decisiones](docs/decisions.md) |
+| 2 · Base analítica y descriptivos | Página 1, tabla por dimensión | `src/build_dataset.py` → [data/analytic.csv](data/analytic.csv) |
+| 3 · Comparación, explicación, conducta, mejora | Páginas 1–2 | `src/analyze.py`, `src/analyze_duration.py` → `results/` |
+| 4 · Hallazgos accionables | Página 2, cinco hallazgos | `src/compose_report.py`, `src/render_report.py` |
+
 ## Reproducir el resultado
 
 Python 3.13. Desde la raíz del repositorio:
@@ -40,7 +53,7 @@ La **codificación semántica asistida no es una extracción automática determi
 
 - [Plan previo](docs/analysis_plan.md): registrado en el primer commit antes de revisar resultados conversacionales; hipótesis principal bilateral de compromiso con fecha.
 - [Decisiones](docs/decisions.md) y [procedencia de etiquetas](docs/coding_provenance.md): reglas, aclaraciones y asistencia de IA.
-- [Métodos estadísticos](docs/statistical_methods.md): Fisher, intervalos Wilson/Newcombe, bootstrap y permutación de medianas, Holm para dos secundarios.
+- [Métodos estadísticos](docs/statistical_methods.md): Fisher, intervalos Wilson/Newcombe, bootstrap y permutación de medianas, Holm para las dos secundarias y, aparte, para las diez comparaciones exploratorias.
 - [Calidad ASR](docs/asr_quality.md): controles dirigidos y omisiones detectadas; no hay verdad de referencia humana ni validación independiente del audio.
 
 Las grabaciones provienen de campañas y momentos distintos. Propósito se infiere del contenido; no reemplaza metadatos de campaña, asignación, saldo o mora. No conocemos repetición de clientes/agentes ni el universo de intentos. Los intervalos suponen observaciones independientes y no incorporan error de transcripción/codificación. Ausencia de significación no prueba equivalencia.
@@ -63,4 +76,4 @@ python -m pip install -r requirements-dev.txt
 python src/check_report.py
 ```
 
-Las capturas y el PDF de comprobación quedan en `.cache/report_qa/`, fuera de Git. El entregable solicitado es el HTML. Código sencillo por etapas, sin modelos predictivos ni regresiones que la muestra no justifica.
+Comprueba dos páginas A4, sin desbordes verticales ni columnas recortadas en tablas, sin scroll horizontal en móvil y sin errores de consola. Las capturas y el PDF de comprobación quedan en `.cache/report_qa/`, fuera de Git. El entregable solicitado es el HTML. Código sencillo por etapas, sin modelos predictivos ni regresiones que la muestra no justifica.

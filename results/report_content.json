@@ -1,90 +1,320 @@
 {
   "author": "Carlos Gutiérrez Orjuela",
   "repository_url": "https://github.com/carloxorjuela/crecere-ai-call-analysis",
-  "headline": "Más compromisos humanos, en gestiones distintas",
-  "lead": "La diferencia en compromisos con fecha no es estadísticamente concluyente. Análisis de 50 grabaciones humanas y 50 de IA; promesas verbales, no pagos verificados.",
-  "recommendation": "Corregir ofertas inconsistentes y evaluar humanos e IA dentro de la misma campaña y etapa, con seguimiento de pagos.",
+  "headline": "La brecha de la IA está en el cierre de la conversación",
+  "lead": "En 100 grabaciones, los humanos ofrecen más alternativas, acuerdan más siguientes pasos y recapitulan más. La diferencia en compromisos de pago con fecha (−19,4 pp) no es estadísticamente concluyente y en parte refleja casos distintos.",
   "kpis": [
     {
-      "label": "Grabaciones analizadas",
-      "value": "100",
-      "detail": "50 por grupo · muestra suministrada"
+      "label": "Compromiso con fecha · hipótesis principal",
+      "human": "41 %",
+      "ai": "22 %",
+      "detail": "−19,4 pp · p = 0,068 · no concluyente"
     },
     {
-      "label": "Compromiso con fecha · IA − H",
-      "value": "-19,4 pp",
-      "detail": "IC 95 % [-36,8; 0,3] pp"
+      "label": "Siguiente paso acordado",
+      "human": "78 %",
+      "ai": "47 %",
+      "detail": "−31,5 pp · p Holm = 0,014"
     },
     {
-      "label": "Compromisos no determinables",
-      "value": "13/100",
-      "detail": "Humanos 4 · IA 9"
+      "label": "Recapitula al cierre",
+      "human": "84 %",
+      "ai": "38 %",
+      "detail": "−46,0 pp · p Holm < 0,001"
+    },
+    {
+      "label": "Duración mediana",
+      "human": "171 s",
+      "ai": "149 s",
+      "detail": "−22 s · p Holm = 0,521 · sin diferencia demostrada"
     }
   ],
-  "comparison_caption": "Puntos: tasas; líneas: IC 95 % marginales. Compromiso: Fisher p = 0,068. Siguiente paso: diferencia IA − H -31,5 pp, p = 0,002 (exploratorio). Objeciones: al menos una respuesta específica, no resolución; p ajustado Holm = 0,081.",
-  "context_summary": [
-    "Recordatorios: 25/50 humanos frente a 0/50 IA.",
-    "Propósito inferido de la conversación; la mezcla de casos impide atribuir causalmente la diferencia al agente."
-  ],
-  "duration_summary": [
-    "Mediana: 171,1 s humanos · 149,0 s IA.",
-    "Diferencia: -22,1 s; IC 95 % [-86,9; 88,5] s. Holm p = 0,521; no demuestra ahorro operativo."
-  ],
-  "construction_note": "Inventario y ASR local; codificación asistida con rúbrica y evidencia por segmentos. Fecha exige aceptación del cliente. Cada tasa excluye sus indeterminados; respuesta usa solo llamadas con objeción.",
-  "scope_note": "Muestra observacional seleccionada, sin universo de intentos ni pagos posteriores. Validación humana independiente del audio pendiente; los IC no incorporan errores de transcripción o codificación.",
-  "page2_headline": "Cuatro decisiones para la siguiente iteración",
-  "page2_lead": "Priorizar correcciones observables y una comparación con contexto común antes de escalar por una supuesta ventaja de efectividad.",
-  "context_rows": [
-    [
-      "Negociación / cobranza nueva",
-      "22/50",
-      "46/50"
-    ],
-    [
-      "Recordatorio de acuerdo previo",
-      "25/50",
-      "0/50"
-    ],
-    [
-      "Propósito no determinable",
-      "3/50",
-      "4/50"
-    ],
-    [
-      "Compromiso con fecha, solo cobranza",
-      "7/21 (33,3 %)",
-      "9/38 (23,7 %)"
-    ],
-    [
-      "Frase «descuento del 0 %»",
-      "0/50 (0,0 %)",
-      "8/50 (16,0 %)"
-    ]
-  ],
-  "context_caption": "Corte por propósito exploratorio; no ajusta campaña, mora o selección. Patrones literales del ASR, con suplementos dirigidos disponibles; presencia por llamada, no frecuencia.",
-  "actions": [
+  "approach": [
     {
-      "title": "Separar promesa de recaudo",
-      "finding": "Compromiso con fecha: IA 9/41 (22,0 %) frente a humanos 19/46 (41,3 %). Diferencia -19,4 pp; p = 0,068.",
-      "action": "Vincular compromisos con pagos efectivos a 7 y 30 días; auditar aceptación y monto antes de registrar acuerdo."
+      "title": "Preguntas",
+      "text": "¿Quién logra más compromisos de pago? ¿En qué conductas difieren humanos e IA? ¿La brecha es del agente o del tipo de caso?"
     },
     {
-      "title": "Comparar la misma etapa",
-      "finding": "Dentro de cobranza, diferencia IA − H -9,6 pp; IC 95 % [-33,5; 12,7] pp.",
-      "action": "Asignar casos comparables por campaña, mora y acuerdo previo; conservar intentos fallidos y tamaño de muestra suficiente."
+      "title": "Variables",
+      "text": "Por llamada, con evidencia textual: contacto, objeción y respuesta, alternativa, monto, fecha, siguiente paso, cierre, propósito, duración y frases del guion."
     },
     {
-      "title": "Bloquear descuentos sin beneficio",
-      "finding": "La frase de descuento cero aparece en 8/50 llamadas IA y 0/50 humanas; Fisher p = 0,006 (exploratorio).",
-      "action": "Validar porcentaje y aritmética antes de verbalizar la oferta; con 0 %, presentar financiación sin llamarla descuento."
+      "title": "Hipótesis",
+      "text": "Registrada antes de ver resultados: difieren el compromiso con fecha (principal), la duración y la respuesta a objeciones. Esperábamos IA consistente y humanos adaptativos."
     },
     {
-      "title": "Cerrar con un siguiente paso",
-      "finding": "Paso acordado: IA 20/43 (46,5 %) frente a humanos 39/50 (78,0 %). Diferencia -31,5 pp; IC 95 % [-48,3; -11,8] pp (exploratorio).",
-      "action": "Ante una objeción, acordar pago, documento o recontacto; confirmar responsable y plazo antes de cerrar."
+      "title": "Métodos",
+      "text": "Tasas n/N e IC Wilson; diferencias con IC Newcombe; Fisher exacto; bootstrap y permutación (duración); Holm por pruebas múltiples; corte por propósito."
     }
   ],
-  "statistics_note": "Fisher bilateral principal; IC Wilson/Newcombe. Duración: 20.000 bootstrap y 19.999 permutaciones; semilla fija. Holm para duración y respuesta. Independencia asumida; clientes/agentes repetidos no identificables.",
-  "next_measurement": "Con indeterminados en extremos opuestos, la diferencia de compromiso IA − H va de -28,0 a -2,0 pp (sensibilidad, no IC). Faltan pagos y metadatos de asignación.",
-  "validation_note": "100 filas derivadas; audios y transcripciones privados. Codificación asistida, sin validación humana independiente."
+  "scorecard": [
+    {
+      "dimension": "Contactabilidad",
+      "label": "Titular confirmado",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "84,6 %",
+        "n": "22/26"
+      },
+      "ai": {
+        "rate": "66,7 %",
+        "n": "24/36"
+      },
+      "difference_pp": -17.948717948717952,
+      "ci_pp": [
+        -36.71127556856797,
+        4.443226566920567
+      ],
+      "difference": "−17,9",
+      "p": "= 0,293",
+      "significant": false
+    },
+    {
+      "dimension": "Objeciones",
+      "label": "Plantea objeción",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "95,9 %",
+        "n": "47/49"
+      },
+      "ai": {
+        "rate": "84,1 %",
+        "n": "37/44"
+      },
+      "difference_pp": -11.827458256029677,
+      "ci_pp": [
+        -25.6052068382866,
+        0.6818499141861556
+      ],
+      "difference": "−11,8",
+      "p": "= 0,238",
+      "significant": false
+    },
+    {
+      "dimension": "Manejo de objeciones",
+      "label": "Responde a objeción",
+      "tier": "secundaria",
+      "human": {
+        "rate": "97,9 %",
+        "n": "46/47"
+      },
+      "ai": {
+        "rate": "83,8 %",
+        "n": "31/37"
+      },
+      "difference_pp": -14.088556641748129,
+      "ci_pp": [
+        -29.111228597331706,
+        -1.6750405913503852
+      ],
+      "difference": "−14,1",
+      "p": "= 0,081",
+      "significant": false
+    },
+    {
+      "dimension": "Manejo de objeciones",
+      "label": "Ofrece alternativa",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "90,0 %",
+        "n": "45/50"
+      },
+      "ai": {
+        "rate": "55,1 %",
+        "n": "27/49"
+      },
+      "difference_pp": -34.89795918367348,
+      "ci_pp": [
+        -49.79861024092077,
+        -17.599694387831722
+      ],
+      "difference": "−34,9",
+      "p": "< 0,001",
+      "significant": true
+    },
+    {
+      "dimension": "Negociación",
+      "label": "Acepta un monto",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "39,5 %",
+        "n": "17/43"
+      },
+      "ai": {
+        "rate": "26,2 %",
+        "n": "11/42"
+      },
+      "difference_pp": -13.344407530454038,
+      "ci_pp": [
+        -31.787280164572113,
+        6.5251673035342215
+      ],
+      "difference": "−13,3",
+      "p": "= 0,293",
+      "significant": false
+    },
+    {
+      "dimension": "Compromiso de pago",
+      "label": "Compromiso con fecha",
+      "tier": "principal",
+      "human": {
+        "rate": "41,3 %",
+        "n": "19/46"
+      },
+      "ai": {
+        "rate": "22,0 %",
+        "n": "9/41"
+      },
+      "difference_pp": -19.353128313891833,
+      "ci_pp": [
+        -36.81917431793936,
+        0.32131762254852814
+      ],
+      "difference": "−19,4",
+      "p": "= 0,068",
+      "significant": false
+    },
+    {
+      "dimension": "Resultado",
+      "label": "Siguiente paso",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "78,0 %",
+        "n": "39/50"
+      },
+      "ai": {
+        "rate": "46,5 %",
+        "n": "20/43"
+      },
+      "difference_pp": -31.48837209302326,
+      "ci_pp": [
+        -48.26651370319348,
+        -11.798193266968404
+      ],
+      "difference": "−31,5",
+      "p": "= 0,014",
+      "significant": true
+    },
+    {
+      "dimension": "Claridad",
+      "label": "Recapitula al cierre",
+      "tier": "exploratoria",
+      "human": {
+        "rate": "84,0 %",
+        "n": "42/50"
+      },
+      "ai": {
+        "rate": "38,0 %",
+        "n": "19/50"
+      },
+      "difference_pp": -46.0,
+      "ci_pp": [
+        -60.35364083409436,
+        -27.33410264992425
+      ],
+      "difference": "−46,0",
+      "p": "< 0,001",
+      "significant": true
+    }
+  ],
+  "scorecard_caption": "Punto: diferencia IA − humanos; línea: IC 95 %. Relleno: p ajustada < 0,05. Cada tasa excluye indeterminados; «responde a la objeción» solo entre llamadas con objeción. p: Fisher (principal), Holm entre 2 secundarias y entre 10 exploratorias.",
+  "explanation": {
+    "rows": [
+      [
+        "Recordatorio de acuerdo",
+        "25/50",
+        "0/50"
+      ],
+      [
+        "Menciona acuerdo previo",
+        "32/47 · 68,1 %",
+        "2/44 · 4,5 %"
+      ],
+      [
+        "Compromiso · todas",
+        "19/46 · 41,3 %",
+        "9/41 · 22,0 %"
+      ],
+      [
+        "Compromiso · cobranza",
+        "7/21 · 33,3 %",
+        "9/38 · 23,7 %"
+      ]
+    ],
+    "gap_total": -19.353128313891833,
+    "gap_total_ci": [
+      -36.81917431793936,
+      0.32131762254852814
+    ],
+    "gap_collection": -9.649122807017543,
+    "gap_collection_ci": [
+      -33.47532387262307,
+      12.74295069478024
+    ],
+    "text": "25/50 llamadas humanas recuerdan un acuerdo ya pactado; la IA, ninguna. Comparando solo cobranza, la brecha pasa de −19,4 a −9,6 pp (IC [−33,5; 12,7])."
+  },
+  "conduct": [
+    {
+      "who": "human",
+      "title": "Humanos hacen mejor",
+      "items": [
+        "Ofrecen alternativa: 90 % vs 55 %",
+        "Acuerdan siguiente paso: 78 % vs 47 %",
+        "Recapitulan al cierre: 84 % vs 38 %"
+      ]
+    },
+    {
+      "who": "ai",
+      "title": "IA: fortalezas observadas",
+      "items": [
+        "Guion uniforme: cita consecuencias jurídicas en 86 % vs 18 %",
+        "Contacto con titular y duración: sin diferencia demostrada",
+        "Ninguna métrica de resultado la favorece en esta muestra"
+      ]
+    },
+    {
+      "who": "ai",
+      "title": "Riesgos del guion IA",
+      "items": [
+        "Pregunta cerrada «sí o no»: 52 % vs 2 %",
+        "Oferta con «descuento del 0 %»: 8/50 vs 0/50",
+        "Respuesta genérica a dudas: 8/50 vs 0/50"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "metric": "−46 pp",
+      "title": "La IA cierra sin recapitular",
+      "finding": "Recapitula en 38 % de sus llamadas frente a 84 % de los humanos; IC 95 % [−60,4; −27,3] pp.",
+      "action": "Paso de cierre obligatorio: repetir monto, fecha y canal, y pedir confirmación explícita."
+    },
+    {
+      "metric": "−35 pp",
+      "title": "Pocas alternativas ante la objeción",
+      "finding": "La IA ofrece cuota, plazo o canal alternativo en 55 % frente a 90 %; IC 95 % [−49,8; −17,6] pp.",
+      "action": "Árbol de alternativas activado por tipo de objeción, empezando por falta de liquidez."
+    },
+    {
+      "metric": "−31 pp",
+      "title": "Llamadas que terminan sin siguiente paso",
+      "finding": "Siguiente paso acordado: IA 47 % frente a humanos 78 %; IC 95 % [−48,3; −11,8] pp.",
+      "action": "No terminar sin pago, soporte o recontacto con fecha; medirlo como KPI diario del agente."
+    },
+    {
+      "metric": "8/50",
+      "title": "Ofertas que confunden al cliente",
+      "finding": "La IA ofrece un «descuento del 0 %» en 8/50 llamadas y responde dudas con una fórmula genérica en 8/50; humanos: 0 y 0.",
+      "action": "Validar montos y porcentajes antes de verbalizarlos; con 0 % presentar financiación, no descuento."
+    },
+    {
+      "metric": "−19 pp",
+      "title": "Compromisos: brecha no concluyente",
+      "finding": "Compromiso con fecha: IA 9/41 · 22,0 % frente a humanos 19/46 · 41,3 %; p = 0,068. En cobranza, −9,6 pp.",
+      "action": "Prueba A/B con asignación aleatoria en la misma campaña y etapa; métrica final: pago efectivo a 7 y 30 días."
+    }
+  ],
+  "statistics_note": "Unidad: grabación. Fisher bilateral para la hipótesis principal; IC Wilson/Newcombe; duración con 20 000 bootstrap y 19 999 permutaciones (semilla fija). Independencia asumida: no hay identificadores de cliente o agente.",
+  "limits_note": "Muestra observacional de campañas y momentos distintos; promesas verbales, no pagos. Con indeterminados en extremos opuestos, la brecha principal va de −28,0 a −2,0 pp. Codificación asistida por IA sobre transcripción automática, sin escucha humana independiente; los IC no incluyen ese error.",
+  "validation_note": "100 filas derivadas sin texto ni datos personales; audios y transcripciones fuera del repositorio. CI recalcula el reporte en cada cambio."
 }

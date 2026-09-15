@@ -12,3 +12,6 @@
 - No se ajustó una regresión causal: faltan campaña, mora, saldo y asignación, y el propósito no garantiza comparabilidad. Se publican el agregado y el corte descriptivo por propósito, con intervalos y sensibilidad a indeterminados.
 
 - En la exportación final, `evaluable` se deriva de `dated_promise` no nulo para eliminar la ambigüedad del indicador auxiliar inicial. No cambia etiquetas de compromiso ni denominadores: cada métrica sigue usando sus propios determinables.
+
+- Reporte v2 (15 sep): el informe se reorganizó según las secciones del enunciado (enfoque, comparación por dimensión, explicación/conducta, hallazgos). Las comparaciones no registradas en el plan que muestra el informe (4 conductas, contacto, objeción, monto y 4 patrones literales) forman **una familia exploratoria de 10 pruebas con ajuste Holm**. Se añadió después de ver resultados, por lo que sigue siendo exploratoria; su función es no leer como hallazgo una diferencia que no resiste multiplicidad. No cambia etiquetas, denominadores, la prueba principal ni el Holm de las dos secundarias.
+- Las afirmaciones editoriales del informe (titular, «qué hace mejor cada uno», mezcla de casos) están protegidas por aserciones en `compose_report.py`: si una recomputación deja de sostenerlas, el reporte no se genera.
