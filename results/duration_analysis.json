@@ -1,0 +1,31 @@
+{
+  "human": {
+    "n": 50,
+    "median_seconds": 171.10000000000002,
+    "mean_seconds": 238.0856,
+    "q25_seconds": 130.56,
+    "q75_seconds": 284.99,
+    "total_minutes": 198.40466666666669
+  },
+  "ai": {
+    "n": 50,
+    "median_seconds": 149.0,
+    "mean_seconds": 219.296,
+    "q25_seconds": 95.625,
+    "q75_seconds": 314.08000000000004,
+    "total_minutes": 182.74666666666664
+  },
+  "comparison": {
+    "estimand": "median AI minus median human, seconds",
+    "difference_seconds": -22.100000000000023,
+    "bootstrap_95ci_seconds": [
+      -86.87,
+      88.52999999999997
+    ],
+    "permutation_pvalue": 0.5211,
+    "bootstrap_resamples": 20000,
+    "permutation_resamples": 19999,
+    "seed": 20260914,
+    "limitation": "Recorded duration includes pauses and redactions; this is not productive talk time or cost per recovered payment."
+  }
+}

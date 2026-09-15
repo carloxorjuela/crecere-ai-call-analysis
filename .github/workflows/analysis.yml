@@ -1,0 +1,27 @@
+name: Reproduce analysis
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install analysis dependencies
+        run: pip install -r requirements-analysis.txt
+      - name: Statistical safeguards
+        run: python -m unittest discover -s tests -v
+      - name: Recalculate from de-identified table
+        run: |
+          python src/analyze_duration.py
+          python src/analyze.py
+          python src/compose_report.py
+          python src/render_report.py
+      - name: Check report generation is reproducible
+        run: git diff --exit-code -- report.html results/

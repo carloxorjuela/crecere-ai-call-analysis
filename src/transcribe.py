@@ -15,7 +15,7 @@ from faster_whisper import WhisperModel
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', default='small')
+    parser.add_argument('--model', default='large-v3-turbo')
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--threads', type=int, default=8)
     args = parser.parse_args()

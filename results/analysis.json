@@ -1,0 +1,631 @@
+{
+  "n_by_group": {
+    "ai": 50,
+    "human": 50
+  },
+  "metrics": {
+    "target_contact": {
+      "human": {
+        "events": 22,
+        "n": 26,
+        "unknown_or_na": 24,
+        "rate": 0.8461538461538461,
+        "wilson_95ci": [
+          0.6646880067178653,
+          0.9384996627642164
+        ]
+      },
+      "ai": {
+        "events": 24,
+        "n": 36,
+        "unknown_or_na": 14,
+        "rate": 0.6666666666666666,
+        "wilson_95ci": [
+          0.5033399787115652,
+          0.7978538117569468
+        ]
+      },
+      "comparison": {
+        "difference_pp": -17.948717948717952,
+        "newcombe_95ci_pp": [
+          -36.71127556856797,
+          4.443226566920567
+        ],
+        "fisher_two_sided_p": 0.1463909994128955
+      }
+    },
+    "evaluable": {
+      "human": {
+        "events": 46,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.92,
+        "wilson_95ci": [
+          0.8116175308165717,
+          0.968450485911407
+        ]
+      },
+      "ai": {
+        "events": 41,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.82,
+        "wilson_95ci": [
+          0.6920394632569922,
+          0.9022980732976582
+        ]
+      },
+      "comparison": {
+        "difference_pp": -10.000000000000009,
+        "newcombe_95ci_pp": [
+          -23.682597907053367,
+          3.6087223848543153
+        ],
+        "fisher_two_sided_p": 0.2336027683876592
+      }
+    },
+    "zero_discount_phrase": {
+      "human": {
+        "events": 0,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.0,
+        "wilson_95ci": [
+          0.0,
+          0.07134759913335868
+        ]
+      },
+      "ai": {
+        "events": 8,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.16,
+        "wilson_95ci": [
+          0.08337420678033407,
+          0.28514216063034986
+        ]
+      },
+      "comparison": {
+        "difference_pp": 16.0,
+        "newcombe_95ci_pp": [
+          5.530046758157205,
+          28.514216063034986
+        ],
+        "fisher_two_sided_p": 0.00577016201961505
+      }
+    },
+    "binary_answer_prompt": {
+      "human": {
+        "events": 1,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.02,
+        "wilson_95ci": [
+          0.0035392592716462293,
+          0.1049544358963781
+        ]
+      },
+      "ai": {
+        "events": 26,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.52,
+        "wilson_95ci": [
+          0.3851174489004462,
+          0.6520286471342195
+        ]
+      },
+      "comparison": {
+        "difference_pp": 50.0,
+        "newcombe_95ci_pp": [
+          34.059310313039916,
+          63.30508160419106
+        ],
+        "fisher_two_sided_p": 6.452098917051748e-09
+      }
+    },
+    "legal_terms": {
+      "human": {
+        "events": 9,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.18,
+        "wilson_95ci": [
+          0.09770192670234176,
+          0.30796053674300783
+        ]
+      },
+      "ai": {
+        "events": 43,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.86,
+        "wilson_95ci": [
+          0.7381380628941446,
+          0.9304916657298371
+        ]
+      },
+      "comparison": {
+        "difference_pp": 68.0,
+        "newcombe_95ci_pp": [
+          50.32962063826864,
+          78.83607299988044
+        ],
+        "fisher_two_sided_p": 5.5575585036969876e-12
+      }
+    },
+    "generic_doubt_response": {
+      "human": {
+        "events": 0,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.0,
+        "wilson_95ci": [
+          0.0,
+          0.07134759913335868
+        ]
+      },
+      "ai": {
+        "events": 8,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.16,
+        "wilson_95ci": [
+          0.08337420678033407,
+          0.28514216063034986
+        ]
+      },
+      "comparison": {
+        "difference_pp": 16.0,
+        "newcombe_95ci_pp": [
+          5.530046758157205,
+          28.514216063034986
+        ],
+        "fisher_two_sided_p": 0.00577016201961505
+      }
+    },
+    "dated_promise": {
+      "human": {
+        "events": 19,
+        "n": 46,
+        "unknown_or_na": 4,
+        "rate": 0.41304347826086957,
+        "wilson_95ci": [
+          0.28288603224812775,
+          0.5566050222015384
+        ]
+      },
+      "ai": {
+        "events": 9,
+        "n": 41,
+        "unknown_or_na": 9,
+        "rate": 0.21951219512195122,
+        "wilson_95ci": [
+          0.12003174778217568,
+          0.3670500598822617
+        ]
+      },
+      "comparison": {
+        "difference_pp": -19.353128313891833,
+        "newcombe_95ci_pp": [
+          -36.81917431793936,
+          0.32131762254852814
+        ],
+        "fisher_two_sided_p": 0.06761536104458446
+      }
+    },
+    "explicit_promise": {
+      "human": {
+        "events": 20,
+        "n": 46,
+        "unknown_or_na": 4,
+        "rate": 0.43478260869565216,
+        "wilson_95ci": [
+          0.3020926277801995,
+          0.5775256630570501
+        ]
+      },
+      "ai": {
+        "events": 12,
+        "n": 43,
+        "unknown_or_na": 7,
+        "rate": 0.27906976744186046,
+        "wilson_95ci": [
+          0.16746613786237485,
+          0.4269102868187886
+        ]
+      },
+      "comparison": {
+        "difference_pp": -15.57128412537917,
+        "newcombe_95ci_pp": [
+          -33.69059694450563,
+          4.294125562060719
+        ],
+        "fisher_two_sided_p": 0.18449644629620185
+      }
+    },
+    "amount_agreed": {
+      "human": {
+        "events": 17,
+        "n": 43,
+        "unknown_or_na": 7,
+        "rate": 0.3953488372093023,
+        "wilson_95ci": [
+          0.2636531475829744,
+          0.5442093693712609
+        ]
+      },
+      "ai": {
+        "events": 11,
+        "n": 42,
+        "unknown_or_na": 8,
+        "rate": 0.2619047619047619,
+        "wilson_95ci": [
+          0.15302640287832986,
+          0.41068730705771955
+        ]
+      },
+      "comparison": {
+        "difference_pp": -13.344407530454038,
+        "newcombe_95ci_pp": [
+          -31.787280164572113,
+          6.5251673035342215
+        ],
+        "fisher_two_sided_p": 0.24972472849263577
+      }
+    },
+    "next_step_agreed": {
+      "human": {
+        "events": 39,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.78,
+        "wilson_95ci": [
+          0.6475845041874634,
+          0.8724608402978559
+        ]
+      },
+      "ai": {
+        "events": 20,
+        "n": 43,
+        "unknown_or_na": 7,
+        "rate": 0.46511627906976744,
+        "wilson_95ci": [
+          0.32511057704121815,
+          0.6108435952768602
+        ]
+      },
+      "comparison": {
+        "difference_pp": -31.48837209302326,
+        "newcombe_95ci_pp": [
+          -48.26651370319348,
+          -11.798193266968404
+        ],
+        "fisher_two_sided_p": 0.002392767050000703
+      }
+    },
+    "closure_recap": {
+      "human": {
+        "events": 42,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.84,
+        "wilson_95ci": [
+          0.7148578393696501,
+          0.916625793219666
+        ]
+      },
+      "ai": {
+        "events": 19,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.38,
+        "wilson_95ci": [
+          0.2586278931019359,
+          0.5184955306900701
+        ]
+      },
+      "comparison": {
+        "difference_pp": -46.0,
+        "newcombe_95ci_pp": [
+          -60.35364083409436,
+          -27.33410264992425
+        ],
+        "fisher_two_sided_p": 4.059279561739311e-06
+      }
+    },
+    "objection": {
+      "human": {
+        "events": 47,
+        "n": 49,
+        "unknown_or_na": 1,
+        "rate": 0.9591836734693877,
+        "wilson_95ci": [
+          0.8628696769391992,
+          0.9887343666338142
+        ]
+      },
+      "ai": {
+        "events": 37,
+        "n": 44,
+        "unknown_or_na": 6,
+        "rate": 0.8409090909090909,
+        "wilson_95ci": [
+          0.706337949377594,
+          0.9207332298779874
+        ]
+      },
+      "comparison": {
+        "difference_pp": -11.827458256029677,
+        "newcombe_95ci_pp": [
+          -25.6052068382866,
+          0.6818499141861556
+        ],
+        "fisher_two_sided_p": 0.07938548868574444
+      }
+    },
+    "relevant_response": {
+      "human": {
+        "events": 46,
+        "n": 47,
+        "unknown_or_na": 0,
+        "rate": 0.9787234042553191,
+        "wilson_95ci": [
+          0.8888701895837066,
+          0.996234231961403
+        ]
+      },
+      "ai": {
+        "events": 31,
+        "n": 37,
+        "unknown_or_na": 0,
+        "rate": 0.8378378378378378,
+        "wilson_95ci": [
+          0.6886351629906503,
+          0.9234879276598885
+        ]
+      },
+      "comparison": {
+        "difference_pp": -14.088556641748129,
+        "newcombe_95ci_pp": [
+          -29.111228597331706,
+          -1.6750405913503852
+        ],
+        "fisher_two_sided_p": 0.040281979425633385
+      }
+    },
+    "alternative_offered": {
+      "human": {
+        "events": 45,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.9,
+        "wilson_95ci": [
+          0.7863976856252035,
+          0.9565242350681096
+        ]
+      },
+      "ai": {
+        "events": 27,
+        "n": 49,
+        "unknown_or_na": 1,
+        "rate": 0.5510204081632653,
+        "wilson_95ci": [
+          0.413151082194979,
+          0.6814715893131335
+        ]
+      },
+      "comparison": {
+        "difference_pp": -34.89795918367348,
+        "newcombe_95ci_pp": [
+          -49.79861024092077,
+          -17.599694387831722
+        ],
+        "fisher_two_sided_p": 0.00010384160374243267
+      }
+    },
+    "prior_agreement": {
+      "human": {
+        "events": 32,
+        "n": 47,
+        "unknown_or_na": 3,
+        "rate": 0.6808510638297872,
+        "wilson_95ci": [
+          0.5383265689689715,
+          0.7960462125036255
+        ]
+      },
+      "ai": {
+        "events": 2,
+        "n": 44,
+        "unknown_or_na": 6,
+        "rate": 0.045454545454545456,
+        "wilson_95ci": [
+          0.012555109949594967,
+          0.15134998437629651
+        ]
+      },
+      "comparison": {
+        "difference_pp": -63.53965183752418,
+        "newcombe_95ci_pp": [
+          -75.51975832057853,
+          -45.78378643485765
+        ],
+        "fisher_two_sided_p": 6.631684216832948e-11
+      }
+    },
+    "customer_speech": {
+      "human": {
+        "events": 49,
+        "n": 50,
+        "unknown_or_na": 0,
+        "rate": 0.98,
+        "wilson_95ci": [
+          0.8950455641036219,
+          0.9964607407283539
+        ]
+      },
+      "ai": {
+        "events": 41,
+        "n": 44,
+        "unknown_or_na": 6,
+        "rate": 0.9318181818181818,
+        "wilson_95ci": [
+          0.8177495562977846,
+          0.9765406040926183
+        ]
+      },
+      "comparison": {
+        "difference_pp": -4.818181818181822,
+        "newcombe_95ci_pp": [
+          -16.34320126000434,
+          4.782521922984673
+        ],
+        "fisher_two_sided_p": 0.33718664135542176
+      }
+    }
+  },
+  "purpose_counts": {
+    "ai": {
+      "collection": 46,
+      "reminder": 0,
+      "unclear": 4
+    },
+    "human": {
+      "collection": 22,
+      "reminder": 25,
+      "unclear": 3
+    }
+  },
+  "outcome_counts": {
+    "ai": {
+      "already_paid": 0,
+      "dated_promise": 9,
+      "follow_up": 4,
+      "pending_approval": 0,
+      "refusal": 9,
+      "third_party": 4,
+      "unclear": 13,
+      "undated_promise": 3,
+      "voicemail": 3,
+      "wrong_number": 5
+    },
+    "human": {
+      "already_paid": 2,
+      "dated_promise": 19,
+      "follow_up": 15,
+      "pending_approval": 4,
+      "refusal": 4,
+      "third_party": 2,
+      "unclear": 2,
+      "undated_promise": 1,
+      "voicemail": 1,
+      "wrong_number": 0
+    }
+  },
+  "principal_sensitivity": {
+    "human": {
+      "all_unknown_negative_rate": 0.38,
+      "all_unknown_positive_rate": 0.46,
+      "unknown": 4
+    },
+    "ai": {
+      "all_unknown_negative_rate": 0.18,
+      "all_unknown_positive_rate": 0.36,
+      "unknown": 9
+    }
+  },
+  "within_purpose_exploratory": {
+    "collection": {
+      "human": {
+        "events": 7,
+        "n": 21,
+        "unknown_or_na": 1,
+        "rate": 0.3333333333333333,
+        "wilson_95ci": [
+          0.17194752605083474,
+          0.5462654802574475
+        ]
+      },
+      "ai": {
+        "events": 9,
+        "n": 38,
+        "unknown_or_na": 8,
+        "rate": 0.23684210526315788,
+        "wilson_95ci": [
+          0.12993707017054085,
+          0.392068123632398
+        ]
+      },
+      "comparison": {
+        "difference_pp": -9.649122807017543,
+        "newcombe_95ci_pp": [
+          -33.47532387262307,
+          12.74295069478024
+        ],
+        "fisher_two_sided_p": 0.5429993065587913
+      }
+    },
+    "reminder": {
+      "human": {
+        "events": 12,
+        "n": 22,
+        "unknown_or_na": 3,
+        "rate": 0.5454545454545454,
+        "wilson_95ci": [
+          0.34659795320734943,
+          0.7307970581918667
+        ]
+      },
+      "ai": {
+        "events": 0,
+        "n": 0,
+        "unknown_or_na": 0,
+        "rate": null,
+        "wilson_95ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "unclear": {
+      "human": {
+        "events": 0,
+        "n": 3,
+        "unknown_or_na": 0,
+        "rate": 0.0,
+        "wilson_95ci": [
+          0.0,
+          0.5614970317550454
+        ]
+      },
+      "ai": {
+        "events": 0,
+        "n": 3,
+        "unknown_or_na": 1,
+        "rate": 0.0,
+        "wilson_95ci": [
+          0.0,
+          0.5614970317550454
+        ]
+      },
+      "comparison": {
+        "difference_pp": 0.0,
+        "newcombe_95ci_pp": [
+          -56.14970317550454,
+          56.14970317550454
+        ],
+        "fisher_two_sided_p": 1.0
+      }
+    }
+  },
+  "principal_difference_missing_bounds_pp": [
+    -28.000000000000004,
+    -2.0000000000000018
+  ],
+  "secondary_holm_pvalues": {
+    "relevant_response": 0.08056395885126677,
+    "duration": 0.5211
+  },
+  "interpretation": "Associations in a selected observational sample. No causal attribution, no realized payment measurement. Secondary/exploratory p-values are not confirmatory."
+}
