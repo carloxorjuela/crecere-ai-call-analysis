@@ -6,7 +6,7 @@ El entregable ejecutivo es **[report.html](report.html)**: descargar y abrir en 
 
 ## Resultado en una línea
 
-La brecha de la IA está en el cierre: recapitula en 38 % vs 84 % de los humanos (−46 pp), ofrece alternativas en 55 % vs 90 % (−35 pp) y acuerda un siguiente paso en 47 % vs 78 % (−31 pp); las tres resisten Holm. La diferencia en compromisos con fecha (22 % vs 41 %, p = 0,068) no es concluyente y se reduce a −9,6 pp al comparar solo cobranza: la mitad de las llamadas humanas son recordatorios de acuerdos ya pactados y la IA no tiene ninguno.
+La brecha de la IA está en el cierre: recapitula en 38 % vs 84 % de los humanos (−46 pp), ofrece alternativas en 55 % vs 90 % (−35 pp) y acuerda un siguiente paso en 47 % vs 78 % (−31 pp); las tres resisten Holm. Antes del cierre, 12/50 llamadas de IA terminan sin gestión posible (número equivocado, tercero o buzón) frente a 3/50 humanas. La diferencia en compromisos con fecha (22 % vs 41 %, p = 0,068) no es concluyente y se reduce a −9,6 pp al comparar solo cobranza: la mitad de las llamadas humanas son recordatorios de acuerdos ya pactados y la IA no tiene ninguno.
 
 ## Dónde está cada parte del enunciado
 
@@ -14,6 +14,7 @@ La brecha de la IA está en el cierre: recapitula en 38 % vs 84 % de los humanos
 |---|---|---|
 | 1 · Preguntas, variables, hipótesis, métodos | Página 1, «Cómo se abordó» | [plan previo](docs/analysis_plan.md), [rúbrica](docs/labeling_guide.md), [decisiones](docs/decisions.md) |
 | 2 · Base analítica y descriptivos | Página 1, tabla por dimensión | `src/build_dataset.py` → [data/analytic.csv](data/analytic.csv) |
+| 2 · Resultado final por llamada | Página 1, barras apiladas | `results/analysis.json` (`outcome_counts`) |
 | 3 · Comparación, explicación, conducta, mejora | Páginas 1–2 | `src/analyze.py`, `src/analyze_duration.py` → `results/` |
 | 4 · Hallazgos accionables | Página 2, cinco hallazgos | `src/compose_report.py`, `src/render_report.py` |
 

@@ -1,4 +1,5 @@
 """Headless browser QA of standalone HTML, print pagination and mobile overflow."""
+import argparse
 import json
 from pathlib import Path
 import pymupdf
@@ -8,14 +9,18 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def main():
-    output=ROOT/'.cache/report_qa'
+    parser=argparse.ArgumentParser(description='Check a rendered report; defaults to the delivered report.html.')
+    parser.add_argument('--report',type=Path,default=ROOT/'report.html')
+    parser.add_argument('--output',type=Path,default=ROOT/'.cache/report_qa')
+    args=parser.parse_args()
+    output=args.output
     output.mkdir(parents=True,exist_ok=True)
     errors=[]
     with sync_playwright() as p:
         browser=p.chromium.launch(channel='msedge',headless=True)
         page=browser.new_page(viewport={'width':1100,'height':1300},device_scale_factor=1)
         page.on('pageerror',lambda error:errors.append(str(error)))
-        page.goto((ROOT/'report.html').as_uri(),wait_until='load')
+        page.goto(args.report.resolve().as_uri(),wait_until='load')
         for i,element in enumerate(page.locator('article.page').all(),1):
             element.screenshot(path=str(output/f'screen_page_{i}.png'))
         page.emulate_media(media='print')

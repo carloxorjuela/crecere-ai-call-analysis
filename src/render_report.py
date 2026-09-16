@@ -51,6 +51,25 @@ def kpis_html(kpis):
         f'<span class="detail">{escape(k["detail"])}</span></div>' for k in kpis)
 
 
+OUTCOME_STEPS = ['#3b1d78', '#6537c3', '#9a7ae0', '#c3adec', '#e4deeb']
+
+
+def outcomes_html(outcomes):
+    """One stacked bar per group over the final outcome of each call."""
+    legend = ''.join(f'<span><i style="background:{OUTCOME_STEPS[i]}"></i>{escape(g["label"])}</span>'
+                     for i, g in enumerate(outcomes['groups']))
+    bars = []
+    for group, name in [('human', 'Humanos'), ('ai', 'IA')]:
+        segments = ''.join(
+            f'<span class="seg" style="width:{2*g[group]}%;background:{OUTCOME_STEPS[i]};color:{"#fff" if i < 3 else INK}" '
+            f'title="{escape(g["label"])}: {g[group]}/50">{g[group] if g[group] >= 3 else ""}</span>'
+            for i, g in enumerate(outcomes['groups']) if g[group])
+        bars.append(f'<div class="stack-row"><span class="stack-label">{name}</span><span class="stack">{segments}</span></div>')
+    return ('<section class="section outcomes"><div class="section-head"><span class="n">&nbsp;</span><h2>Resultado final de cada llamada</h2>'
+            f'<span class="tag">50 llamadas por grupo</span></div><div class="legend">{legend}</div>{"".join(bars)}'
+            f'<p class="caption"><strong>{escape(outcomes["text"])}</strong> {escape(outcomes["caption"])}</p></section>')
+
+
 def approach_html(items):
     return ''.join(f'<div class="step"><span class="step-title">{escape(i["title"])}</span><p>{escape(i["text"])}</p></div>' for i in items)
 
@@ -111,6 +130,7 @@ def main():
         scorecard=scorecard_html(content['scorecard'], scale),
         explanation=explanation_html(explanation, scale),
         conduct=conduct_html(content['conduct']),
+        outcomes=outcomes_html(content['outcomes']),
         findings=findings_html(content['findings']),
     )
     template = Template((ROOT/'templates/report.html').read_text(encoding='utf-8'))

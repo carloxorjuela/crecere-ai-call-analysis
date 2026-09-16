@@ -75,6 +75,13 @@ table.compact td,table.compact th{padding:5px 4px}
 .methods{margin-top:16px;border-top:1px solid var(--line);padding-top:11px}
 .methods p{font-size:9.5px;color:var(--muted);margin-bottom:5px}
 .footer{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;gap:15px;font-size:9px;color:var(--muted)}
+/* Final-outcome stacked bars */
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:9.5px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:9px;height:9px;margin-right:4px;vertical-align:-1px}
+.stack-row{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px;margin-bottom:4px}
+.stack-label{font-size:11px;font-weight:700}
+.stack{display:flex;height:22px;overflow:hidden}
+.stack .seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;box-shadow:inset -2px 0 0 var(--paper)}
 a{color:var(--purple);text-decoration:underline;text-underline-offset:2px}
 .print-button{display:block;margin:0 auto 18px;padding:10px 16px;background:var(--ink);border:0;color:#fff;font:inherit;cursor:pointer}
 .print-button:focus-visible,.table-scroll:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
@@ -101,6 +108,8 @@ a{color:var(--purple);text-decoration:underline;text-underline-offset:2px}
   .conducts{gap:7px}.conduct{padding:7px 10px}
   .findings{gap:6px}.finding{grid-template-columns:86px 1fr;padding:7px 12px;gap:10px}.finding .big{font-size:21px}
   .methods{margin-top:10px;padding-top:8px}.methods p{font-size:9px;margin-bottom:3px}
+  .outcomes{margin-top:5px}.outcomes .caption{margin-top:3px;font-size:9px}.outcomes .section-head{margin-bottom:5px}
+  .legend{font-size:8.5px;margin-bottom:3px;gap:7px}.stack{height:15px}.stack-row{margin-bottom:2px}.stack .seg{font-size:9px}
 }
 </style></head>
 <body><main><button class="print-button" onclick="window.print()">Imprimir reporte · 2 páginas</button>
@@ -109,7 +118,7 @@ a{color:var(--purple);text-decoration:underline;text-underline-offset:2px}
 <h1>$headline</h1><p class="lead">$lead</p>
 <div class="kpis">$kpis</div>
 <section class="section"><div class="section-head"><span class="n">01</span><h2>Cómo se abordó</h2></div><div class="approach">$approach</div></section>
-<section class="section"><div class="section-head"><span class="n">02</span><h2>Humanos vs IA, dimensión por dimensión</h2><span class="tag">n/N sobre llamadas determinables</span></div>$scorecard<p class="caption">$scorecard_caption</p></section>
+<section class="section"><div class="section-head"><span class="n">02</span><h2>Humanos vs IA, dimensión por dimensión</h2><span class="tag">n/N sobre llamadas determinables</span></div>$scorecard<p class="caption">$scorecard_caption</p></section>$outcomes
 <footer class="footer"><span>$author · Prueba técnica Creceré AI</span><span>01 / 02</span></footer></article>
 <article class="page" aria-label="Explicación y hallazgos">
 <header class="top"><div class="brand">Del análisis <span>a la acción</span></div><div class="eyebrow">Explicación, conducta y prioridades</div></header>

@@ -54,6 +54,30 @@ def adjusted_p(result, key):
     return result['exploratory_holm_pvalues'][key], 'exploratoria'
 
 
+# Final outcome of each call, collapsed into the five categories shown in the report.
+OUTCOME_GROUPS = [
+    ('Promesa con fecha', ['dated_promise']),
+    ('Otro avance', ['undated_promise', 'follow_up', 'pending_approval', 'already_paid']),
+    ('Rechazo', ['refusal']),
+    ('Sin gestión efectiva', ['wrong_number', 'third_party', 'voicemail']),
+    ('No determinable', ['unclear']),
+]
+
+
+def outcome_section(result):
+    counts = result['outcome_counts']
+    groups = [{'label': label, 'human': sum(counts['human'].get(k, 0) for k in keys),
+               'ai': sum(counts['ai'].get(k, 0) for k in keys)} for label, keys in OUTCOME_GROUPS]
+    by_label = {g['label']: g for g in groups}
+    no_contact, undetermined = by_label['Sin gestión efectiva'], by_label['No determinable']
+    return {
+        'groups': groups,
+        'text': (f'{no_contact["ai"]}/50 llamadas de IA terminan sin gestión posible (número equivocado, tercero o buzón) '
+                 f'frente a {no_contact["human"]}/50 humanas, y otras {undetermined["ai"]} quedan no determinables.'),
+        'caption': 'Una categoría por llamada: desenlace observado, no pago verificado.',
+    }
+
+
 def main():
     result = json.loads((ROOT/'results/analysis.json').read_text(encoding='utf-8'))
     duration = json.loads((ROOT/'results/duration_analysis.json').read_text(encoding='utf-8'))
@@ -112,8 +136,9 @@ def main():
             {'title': 'Métodos', 'text': 'Tasas n/N e IC Wilson; diferencias con IC Newcombe; Fisher exacto; bootstrap y permutación (duración); Holm por pruebas múltiples; corte por propósito.'},
         ],
         'scorecard': scorecard,
-        'scorecard_caption': ('Punto: diferencia IA − humanos; línea: IC 95 %. Relleno: p ajustada < 0,05. Cada tasa excluye indeterminados; '
-                              '«responde a la objeción» solo entre llamadas con objeción. p: Fisher (principal), Holm entre 2 secundarias y entre 10 exploratorias.'),
+        'scorecard_caption': ('Punto: diferencia IA − humanos; línea: IC 95 %; relleno: p ajustada < 0,05. '
+                              'p: Fisher (principal), Holm (secundarias y exploratorias).'),
+        'outcomes': outcome_section(result),
         'explanation': {
             'rows': [
                 ['Recordatorio de acuerdo', f'{purpose["human"]["reminder"]}/50', f'{purpose["ai"]["reminder"]}/50'],

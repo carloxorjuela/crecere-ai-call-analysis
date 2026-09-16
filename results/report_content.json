@@ -217,7 +217,38 @@
       "significant": true
     }
   ],
-  "scorecard_caption": "Punto: diferencia IA − humanos; línea: IC 95 %. Relleno: p ajustada < 0,05. Cada tasa excluye indeterminados; «responde a la objeción» solo entre llamadas con objeción. p: Fisher (principal), Holm entre 2 secundarias y entre 10 exploratorias.",
+  "scorecard_caption": "Punto: diferencia IA − humanos; línea: IC 95 %; relleno: p ajustada < 0,05. p: Fisher (principal), Holm (secundarias y exploratorias).",
+  "outcomes": {
+    "groups": [
+      {
+        "label": "Promesa con fecha",
+        "human": 19,
+        "ai": 9
+      },
+      {
+        "label": "Otro avance",
+        "human": 22,
+        "ai": 7
+      },
+      {
+        "label": "Rechazo",
+        "human": 4,
+        "ai": 9
+      },
+      {
+        "label": "Sin gestión efectiva",
+        "human": 3,
+        "ai": 12
+      },
+      {
+        "label": "No determinable",
+        "human": 2,
+        "ai": 13
+      }
+    ],
+    "text": "12/50 llamadas de IA terminan sin gestión posible (número equivocado, tercero o buzón) frente a 3/50 humanas, y otras 13 quedan no determinables.",
+    "caption": "Una categoría por llamada: desenlace observado, no pago verificado."
+  },
   "explanation": {
     "rows": [
       [
